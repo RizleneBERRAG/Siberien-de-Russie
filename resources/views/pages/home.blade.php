@@ -4,14 +4,72 @@
 @section('body_class','home-page')
 @push('styles') @vite('resources/css/pages/home.css') @endpush
 @section('content')
-<section class="home-hero">
-    <div class="hero-copy reveal"><p class="eyebrow"><i></i>Chatterie familiale</p><h1>Le Sibérien,<br><em>tout naturellement.</em></h1><p class="hero-lead">Une allure sauvage, un cœur tendre. Nos chatons grandissent avec nous dans une maison vivante, douce et attentionnée.</p><div class="hero-buttons"><a class="button dark" href="{{ route('cats') }}">Découvrir nos chats <span>↗</span></a><a class="text-link" href="#chatterie">Notre histoire <span>↓</span></a></div></div>
-    <div class="hero-gallery reveal delay"><figure class="hero-main"><img src="https://chatteriesiberienderussie.fr/assets/oslo.jpg" alt="Oslo, Sibérien de Russie"><figcaption><strong>Oslo</strong><span>Notre mâle Sibérien</span></figcaption></figure><figure class="hero-detail"><img src="https://chatteriesiberienderussie.fr/assets/vanille.jpg" alt="Vanille, chatte Sibérienne"></figure><p>Force tranquille<br>et infinie douceur.</p></div>
-    <div class="hero-stamp"><strong>SR</strong><span>ÉLEVAGE FAMILIAL</span></div>
+<section class="signature-hero" data-hero>
+    <div class="hero-word" aria-hidden="true">SIBÉRIEN</div>
+    <div class="hero-slides">
+        @foreach([
+            ['oslo.jpg','Oslo','Force tranquille'],
+            ['anouchka.jpg','Anouchka','Élégance naturelle'],
+            ['vanille.jpg','Vanille','Douceur infinie']
+        ] as $index => $cat)
+        <figure class="hero-slide {{ $index === 0 ? 'active' : '' }}" data-hero-slide="{{ $index }}">
+            <img src="https://chatteriesiberienderussie.fr/assets/{{ $cat[0] }}" alt="{{ $cat[1] }}, Sibérien de Russie">
+            <div class="image-shade"></div>
+            <figcaption><span>0{{ $index + 1 }}</span><strong>{{ $cat[1] }}</strong><small>{{ $cat[2] }}</small></figcaption>
+        </figure>
+        @endforeach
+    </div>
+    <div class="hero-origin reveal"><span>Une race venue du froid.</span><span>Une tendresse qui réchauffe tout.</span></div>
+    <div class="hero-title reveal">
+        <p>Chatterie familiale · France & Suisse</p>
+        <h1>Beauté<br><em>sauvage.</em></h1>
+    </div>
+    <div class="hero-manifesto reveal delay"><p>Nos Sibériens grandissent libres d’être eux-mêmes, entourés par notre famille et préparés avec soin à rencontrer la vôtre.</p><a href="{{ route('cats') }}">Rencontrer nos chats <span>↗</span></a></div>
+    <div class="hero-switcher">
+        @foreach(['Oslo','Anouchka','Vanille'] as $index => $name)
+        <button class="{{ $index === 0 ? 'active' : '' }}" data-hero-target="{{ $index }}"><span>0{{ $index + 1 }}</span>{{ $name }}</button>
+        @endforeach
+    </div>
+    <a class="hero-scroll" href="#chatterie"><span>Entrer dans leur univers</span><i></i></a>
 </section>
-<section class="trust-line"><span>Élevés en famille</span><i></i><span>Suivi vétérinaire</span><i></i><span>Chatons LOOF</span><i></i><span>France & Suisse</span></section>
-<section class="home-story" id="chatterie"><header class="section-intro reveal"><p class="eyebrow"><i></i>Notre univers</p><h2>Ils naissent chez nous.<br><em>Ils grandissent avec nous.</em></h2></header><div class="story-layout"><figure class="story-large reveal"><img src="https://chatteriesiberienderussie.fr/assets/anouchka.jpg" alt="Anouchka"></figure><div class="story-copy reveal"><b>01</b><h3>Une vraie vie de famille</h3><p>Nos chats partagent notre quotidien et celui de nos enfants. Cette proximité façonne des compagnons curieux, confiants et profondément attachés à l’humain.</p><p>Leur équilibre, leur santé et leur personnalité guident chacune de nos décisions.</p><a class="underlined" href="{{ route('adoption') }}">Découvrir notre approche <span>→</span></a></div><figure class="story-small reveal"><img src="https://chatteriesiberienderussie.fr/assets/bloom.jpg" alt="Bloom"></figure></div></section>
-<section class="home-kittens"><header class="kittens-title reveal"><div><p class="eyebrow light"><i></i>Nés le 26 juin 2026</p><h2>Les petits derniers</h2></div><a class="button outline" href="{{ route('cats') }}">Voir toute la famille <span>↗</span></a></header><div class="kitten-grid">@foreach([['Bloom','bloom.jpg','Mâle · Chocolat point'],['Bisous','bisous.jpg','Femelle · Blue tabby point'],['Bella','bella.jpg','Femelle · Blue point']] as $kitten)<a class="kitten reveal" href="{{ route('cats') }}#chatons"><figure><img src="https://chatteriesiberienderussie.fr/assets/{{ $kitten[1] }}" alt="{{ $kitten[0] }}"><span>Disponible</span></figure><h3>{{ $kitten[0] }}</h3><p>{{ $kitten[2] }}</p></a>@endforeach</div></section>
-<section class="home-values"><div class="values-heading reveal"><p class="eyebrow"><i></i>Nos engagements</p><h2>Bien grandir,<br>avant de partir.</h2></div><div class="values-list"><article class="reveal"><span>01</span><h3>Santé suivie</h3><p>Tests, vaccinations, vermifugation et accompagnement vétérinaire.</p></article><article class="reveal"><span>02</span><h3>Socialisation</h3><p>Une vie au sein de la famille dès leurs premiers jours.</p></article><article class="reveal"><span>03</span><h3>Accompagnement</h3><p>Une présence avant et après l’arrivée dans leur nouveau foyer.</p></article></div></section>
-<section class="home-cta" id="contact"><img src="https://chatteriesiberienderussie.fr/assets/bisous.jpg" alt="Chaton Sibérien"><div></div><article class="reveal"><p>Une rencontre peut tout changer.</p><h2>Et si votre histoire<br>commençait ici ?</h2><a class="button cream" href="mailto:chatteriesiberienderussie@gmail.com">Nous contacter <span>↗</span></a></article></section>
+
+<div class="moving-line" aria-hidden="true"><div><span>SIBÉRIENS</span><i>✦</i><span>NEVA MASQUERADE</span><i>✦</i><span>ÉLEVÉS EN FAMILLE</span><i>✦</i><span>FRANCE · SUISSE</span><i>✦</i><span>SIBÉRIENS</span><i>✦</i><span>NEVA MASQUERADE</span></div></div>
+
+<section class="editorial-story" id="chatterie">
+    <div class="story-index reveal">01 <span>/</span> LA CHATTERIE</div>
+    <div class="story-statement reveal"><p>Chez nous, ils ne vivent pas à côté de la famille.</p><h2>Ils en font<br><em>pleinement partie.</em></h2></div>
+    <figure class="story-photo story-photo-a reveal"><img src="https://chatteriesiberienderussie.fr/assets/anouchka.jpg" alt="Anouchka à la chatterie"><span>Le quotidien partagé</span></figure>
+    <div class="story-body reveal"><p>Nos chatons découvrent le monde au milieu des voix, des jeux et des gestes tendres. Cette proximité construit des tempéraments confiants, curieux et profondément attachés à l’humain.</p><a href="{{ route('adoption') }}">Notre façon de les accompagner <span>→</span></a></div>
+    <figure class="story-photo story-photo-b reveal"><img src="https://chatteriesiberienderussie.fr/assets/bloom.jpg" alt="Bloom, chaton Sibérien"><span>Les premiers instants</span></figure>
+</section>
+
+<section class="living-portraits">
+    <header class="portraits-head reveal"><div><p>02 / LA PORTÉE ACTUELLE</p><h2>Trois petits caractères.<br><em>Une même douceur.</em></h2></div><a href="{{ route('cats') }}#chatons">Voir tous les chatons <span>↗</span></a></header>
+    <div class="portrait-track">
+        @foreach([
+            ['Bloom','bloom.jpg','Mâle · Chocolat point'],
+            ['Bisous','bisous.jpg','Femelle · Blue tabby point'],
+            ['Bella','bella.jpg','Femelle · Blue point']
+        ] as $index => $kitten)
+        <a class="living-card reveal" href="mailto:chatteriesiberienderussie@gmail.com?subject=Je souhaite en savoir plus sur {{ $kitten[0] }}">
+            <figure><img src="https://chatteriesiberienderussie.fr/assets/{{ $kitten[1] }}" alt="{{ $kitten[0] }}"><span>Disponible</span><b>0{{ $index + 1 }}</b></figure>
+            <div><h3>{{ $kitten[0] }}</h3><p>{{ $kitten[2] }} · Yeux bleus</p><span>Découvrir ↗</span></div>
+        </a>
+        @endforeach
+    </div>
+</section>
+
+<section class="promise">
+    <header class="reveal"><p>03 / NOTRE ENGAGEMENT</p><h2>Du premier souffle<br>au premier soir <em>chez vous.</em></h2></header>
+    <div class="promise-list">
+        <article class="reveal"><span>01</span><div><h3>Bien naître</h3><p>Des parents suivis, une santé surveillée et un environnement pensé pour eux.</p></div></article>
+        <article class="reveal"><span>02</span><div><h3>Bien grandir</h3><p>Une socialisation naturelle au cœur de notre maison et de notre quotidien.</p></div></article>
+        <article class="reveal"><span>03</span><div><h3>Bien se rencontrer</h3><p>Un accompagnement attentif pour faire naître une relation qui durera.</p></div></article>
+    </div>
+</section>
+
+<section class="country-gateway">
+    <div class="gateway-bg"><img src="https://chatteriesiberienderussie.fr/assets/bisous.jpg" alt="Bisous, chaton Sibérien"></div>
+    <div class="gateway-content reveal"><p>Une seule passion, deux adresses</p><h2>Où commence<br>votre histoire ?</h2><div><a href="#"><small>Je suis en</small><strong>France</strong><span>↗</span></a><a href="#"><small>Je suis en</small><strong>Suisse</strong><span>↗</span></a></div></div>
+</section>
 @endsection
