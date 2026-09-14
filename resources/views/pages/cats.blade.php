@@ -1,12 +1,10 @@
 @extends('layouts.app')
-
-@section('title', 'Nos chats | Sibérien de Russie')
-@section('body_class', 'cats-page')
-
-@push('styles')
-    @vite('resources/css/pages/cats.css')
-@endpush
-
+@section('title','Nos chats | Sibérien de Russie')
+@section('body_class','cats-page inner-page')
+@push('styles') @vite('resources/css/pages/cats.css') @endpush
 @section('content')
-    <h1>Nos chats et chatons</h1>
+<section class="cats-hero"><div class="cats-intro reveal"><p class="eyebrow"><i></i>Notre famille féline</p><h1>Des caractères.<br><em>Des histoires.</em></h1><p>Chacun possède cette présence et cette élégance naturelle qui rendent le Sibérien si singulier.</p></div><figure><img src="https://chatteriesiberienderussie.fr/assets/vanille.jpg" alt="Vanille"><figcaption>Vanille · Reproductrice</figcaption></figure></section>
+<section class="breeders"><header class="page-section-title reveal"><p>01 — Les adultes</p><h2>Nos reproducteurs</h2></header>@foreach([['Oslo','Notre mâle','oslo.jpg','Majestueux et infiniment doux.'],['Anouchka','Notre femelle','anouchka.jpg','Élégante, attentive et proche de sa famille.'],['Vanille','Notre femelle','vanille.jpg','Délicate, curieuse et naturellement sociable.']] as $i=>$cat)<article class="breeder reveal"><span>0{{ $i+1 }}</span><figure><img src="https://chatteriesiberienderussie.fr/assets/{{ $cat[2] }}" alt="{{ $cat[0] }}"></figure><div><small>{{ $cat[1] }}</small><h3>{{ $cat[0] }}</h3><p>{{ $cat[3] }}</p></div><b>↗</b></article>@endforeach</section>
+<section class="available-kittens" id="chatons"><header class="page-section-title reveal"><p>02 — Portée actuelle</p><h2>Chatons disponibles</h2><span>Nés le 26 juin 2026</span></header><div class="available-grid">@foreach([['Bloom','bloom.jpg','Mâle','Chocolat point'],['Bisous','bisous.jpg','Femelle','Blue tabby point'],['Bella','bella.jpg','Femelle','Blue point']] as $cat)<article class="available-card reveal"><figure><img src="https://chatteriesiberienderussie.fr/assets/{{ $cat[1] }}" alt="{{ $cat[0] }}"><span>Disponible</span></figure><small>{{ $cat[2] }} · {{ $cat[3] }}</small><h3>{{ $cat[0] }}</h3><p>Yeux bleus</p><a href="mailto:chatteriesiberienderussie@gmail.com?subject=Je souhaite en savoir plus sur {{ $cat[0] }}">En savoir plus <span>→</span></a></article>@endforeach</div></section>
+<section class="cats-cta reveal"><p>Un coup de cœur ?</p><h2>Préparons votre rencontre.</h2><a class="button dark" href="{{ route('adoption') }}">Comprendre l’adoption <span>↗</span></a></section>
 @endsection

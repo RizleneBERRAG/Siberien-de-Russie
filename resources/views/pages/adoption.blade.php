@@ -1,12 +1,12 @@
 @extends('layouts.app')
-
-@section('title', 'Adopter un chaton | Sibérien de Russie')
-@section('body_class', 'adoption-page')
-
-@push('styles')
-    @vite('resources/css/pages/adoption.css')
-@endpush
-
+@section('title','Adopter un chaton | Sibérien de Russie')
+@section('body_class','adoption-page inner-page')
+@push('styles') @vite('resources/css/pages/adoption.css') @endpush
 @section('content')
-    <h1>Adopter un chaton</h1>
+<section class="adoption-hero"><div class="adoption-copy reveal"><p class="eyebrow"><i></i>Une adoption réfléchie</p><h1>Le début d’une<br><em>belle histoire.</em></h1><p>Accueillir un chaton est une rencontre et un engagement. Nous avançons avec chaque famille avec écoute et transparence.</p><a class="button dark" href="#etapes">Découvrir les étapes <span>↓</span></a></div><div class="adoption-pictures"><figure><img src="https://chatteriesiberienderussie.fr/assets/bella.jpg" alt="Bella"></figure><figure><img src="https://chatteriesiberienderussie.fr/assets/bloom.jpg" alt="Bloom"></figure><span>France · Suisse</span></div></section>
+<section class="adoption-statement"><p class="reveal">Notre priorité n’est pas simplement de trouver une maison.</p><h2 class="reveal">C’est de trouver <em>la famille</em><br>qui leur correspond.</h2></section>
+<section class="steps" id="etapes">@foreach([['Faisons connaissance','Vous nous racontez votre foyer et ce que vous recherchez chez votre futur compagnon.'],['Le coup de cœur','Nous vous guidons selon le caractère et les besoins de chacun de nos chatons.'],['La réservation','Une fois votre choix confirmé, nous préparons ensemble son arrivée.'],['Le grand départ','Votre chaton vous rejoint identifié, suivi et accompagné de ses documents.'],['Et après','Nous restons disponibles pour vous conseiller après son arrivée.']] as $i=>$step)<article class="step reveal"><span>0{{ $i+1 }}</span><h3>{{ $step[0] }}</h3><p>{{ $step[1] }}</p></article>@endforeach</section>
+<section class="prepared"><figure><img src="https://chatteriesiberienderussie.fr/assets/bisous.jpg" alt="Bisous"></figure><div class="prepared-copy reveal"><p class="eyebrow"><i></i>Un départ préparé</p><h2>Chaque détail compte.</h2><p>Avant son départ, chaque chaton bénéficie d’une attention adaptée à son âge et à ses besoins.</p><ul><li>Identification électronique</li><li>Vaccination et vermifugation</li><li>Certificat de bonne santé</li><li>Pedigree LOOF</li><li>Conseils pour son arrivée</li></ul><small>Les modalités définitives seront confirmées avec l’éleveuse.</small></div></section>
+<section class="countries"><header class="reveal"><p>Deux domaines, une même attention.</p><h2>France <i>ou</i> Suisse</h2></header><div><article><span>FR</span><h3>Depuis la France</h3><p>Échangez avec la chatterie pour organiser la rencontre et le départ du chaton.</p></article><article><span>CH</span><h3>Depuis la Suisse</h3><p>La même expérience et le même accompagnement depuis le domaine suisse.</p></article></div></section>
+<section class="adoption-cta reveal"><p>Vous vous projetez déjà ?</p><h2>Racontez-nous votre projet.</h2><a class="button cream" href="mailto:chatteriesiberienderussie@gmail.com?subject=Mon projet d’adoption">Commencer l’échange <span>↗</span></a></section>
 @endsection

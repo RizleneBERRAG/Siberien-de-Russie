@@ -1,140 +1,17 @@
 @extends('layouts.app')
-
-@section('title', 'Sibérien de Russie | Chatterie familiale')
-@section('body_class', 'home-page')
-
-@push('styles')
-    @vite('resources/css/pages/home.css')
-@endpush
-
+@section('title','Sibérien de Russie | Chatterie familiale')
+@section('meta_description','Chatterie familiale de Sibériens et Neva Masquerade LOOF en France et en Suisse.')
+@section('body_class','home-page')
+@push('styles') @vite('resources/css/pages/home.css') @endpush
 @section('content')
-
-    <section class="home-hero">
-        <div class="hero-background">
-            <img
-                src="{{ asset('images/oslo.jpg') }}"
-                alt="Oslo, Sibérien de Russie"
-            >
-
-            <div class="hero-image-overlay"></div>
-        </div>
-
-        <div class="hero-decoration" aria-hidden="true">
-            <span>S</span>
-        </div>
-
-        <div class="hero-content container">
-            <div class="hero-copy">
-                <p class="hero-eyebrow">
-                    Chatterie familiale
-                    <span></span>
-                    France & Suisse
-                </p>
-
-                <h1>
-                    La douceur<br>
-                    <em>à l’état sauvage.</em>
-                </h1>
-
-                <p class="hero-description">
-                    Des Sibériens et Neva Masquerade élevés au cœur de notre
-                    famille, dans le respect de leur santé, de leur équilibre
-                    et de leur personnalité.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="{{ route('cats') }}" class="hero-primary-button">
-                        <span>Découvrir nos chatons</span>
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12H19M13 6L19 12L13 18"/>
-                        </svg>
-                    </a>
-
-                    <a href="#chatterie" class="hero-secondary-button">
-                        Notre histoire
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-bottom">
-            <div class="hero-bottom-inner">
-                <div class="hero-signature">
-                    <span class="signature-line"></span>
-
-                    <p>
-                        <strong>Sibériens & Neva Masquerade</strong>
-                        <small>Inscrits au LOOF</small>
-                    </p>
-                </div>
-
-                <div class="hero-values">
-                    <article>
-                        <strong>01</strong>
-                        <span>Élevage<br>familial</span>
-                    </article>
-
-                    <article>
-                        <strong>02</strong>
-                        <span>Santé<br>suivie</span>
-                    </article>
-
-                    <article>
-                        <strong>03</strong>
-                        <span>Socialisation<br>précoce</span>
-                    </article>
-                </div>
-            </div>
-        </div>
-
-        <a href="#chatterie" class="hero-scroll" aria-label="Découvrir la suite">
-            <span>Explorer</span>
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4V20M6 14L12 20L18 14"/>
-            </svg>
-        </a>
-    </section>
-
-    <section class="home-introduction" id="chatterie">
-        <div class="introduction-container container">
-            <div class="introduction-heading">
-                <p class="section-number">01 — Notre histoire</p>
-
-                <h2>
-                    Bien plus qu’un élevage,
-                    <em>une histoire de famille.</em>
-                </h2>
-            </div>
-
-            <div class="introduction-content">
-                <p class="introduction-lead">
-                    Chez nous, les chatons ne grandissent pas à l’écart.
-                    Ils partagent notre quotidien, nos espaces et la vie de
-                    nos enfants dès leurs premiers jours.
-                </p>
-
-                <p>
-                    Cette proximité leur permet de développer un tempérament
-                    équilibré, curieux et profondément attaché à l’humain.
-                    Leur santé, leur alimentation et leur bien-être guident
-                    chacune de nos décisions.
-                </p>
-
-                <a href="{{ route('adoption') }}" class="text-link">
-                    <span>Découvrir notre approche</span>
-
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M5 12H19M13 6L19 12L13 18"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <div class="introduction-word" aria-hidden="true">
-            RUSSIE
-        </div>
-    </section>
-
+<section class="home-hero">
+    <div class="hero-copy reveal"><p class="eyebrow"><i></i>Chatterie familiale</p><h1>Le Sibérien,<br><em>tout naturellement.</em></h1><p class="hero-lead">Une allure sauvage, un cœur tendre. Nos chatons grandissent avec nous dans une maison vivante, douce et attentionnée.</p><div class="hero-buttons"><a class="button dark" href="{{ route('cats') }}">Découvrir nos chats <span>↗</span></a><a class="text-link" href="#chatterie">Notre histoire <span>↓</span></a></div></div>
+    <div class="hero-gallery reveal delay"><figure class="hero-main"><img src="https://chatteriesiberienderussie.fr/assets/oslo.jpg" alt="Oslo, Sibérien de Russie"><figcaption><strong>Oslo</strong><span>Notre mâle Sibérien</span></figcaption></figure><figure class="hero-detail"><img src="https://chatteriesiberienderussie.fr/assets/vanille.jpg" alt="Vanille, chatte Sibérienne"></figure><p>Force tranquille<br>et infinie douceur.</p></div>
+    <div class="hero-stamp"><strong>SR</strong><span>ÉLEVAGE FAMILIAL</span></div>
+</section>
+<section class="trust-line"><span>Élevés en famille</span><i></i><span>Suivi vétérinaire</span><i></i><span>Chatons LOOF</span><i></i><span>France & Suisse</span></section>
+<section class="home-story" id="chatterie"><header class="section-intro reveal"><p class="eyebrow"><i></i>Notre univers</p><h2>Ils naissent chez nous.<br><em>Ils grandissent avec nous.</em></h2></header><div class="story-layout"><figure class="story-large reveal"><img src="https://chatteriesiberienderussie.fr/assets/anouchka.jpg" alt="Anouchka"></figure><div class="story-copy reveal"><b>01</b><h3>Une vraie vie de famille</h3><p>Nos chats partagent notre quotidien et celui de nos enfants. Cette proximité façonne des compagnons curieux, confiants et profondément attachés à l’humain.</p><p>Leur équilibre, leur santé et leur personnalité guident chacune de nos décisions.</p><a class="underlined" href="{{ route('adoption') }}">Découvrir notre approche <span>→</span></a></div><figure class="story-small reveal"><img src="https://chatteriesiberienderussie.fr/assets/bloom.jpg" alt="Bloom"></figure></div></section>
+<section class="home-kittens"><header class="kittens-title reveal"><div><p class="eyebrow light"><i></i>Nés le 26 juin 2026</p><h2>Les petits derniers</h2></div><a class="button outline" href="{{ route('cats') }}">Voir toute la famille <span>↗</span></a></header><div class="kitten-grid">@foreach([['Bloom','bloom.jpg','Mâle · Chocolat point'],['Bisous','bisous.jpg','Femelle · Blue tabby point'],['Bella','bella.jpg','Femelle · Blue point']] as $kitten)<a class="kitten reveal" href="{{ route('cats') }}#chatons"><figure><img src="https://chatteriesiberienderussie.fr/assets/{{ $kitten[1] }}" alt="{{ $kitten[0] }}"><span>Disponible</span></figure><h3>{{ $kitten[0] }}</h3><p>{{ $kitten[2] }}</p></a>@endforeach</div></section>
+<section class="home-values"><div class="values-heading reveal"><p class="eyebrow"><i></i>Nos engagements</p><h2>Bien grandir,<br>avant de partir.</h2></div><div class="values-list"><article class="reveal"><span>01</span><h3>Santé suivie</h3><p>Tests, vaccinations, vermifugation et accompagnement vétérinaire.</p></article><article class="reveal"><span>02</span><h3>Socialisation</h3><p>Une vie au sein de la famille dès leurs premiers jours.</p></article><article class="reveal"><span>03</span><h3>Accompagnement</h3><p>Une présence avant et après l’arrivée dans leur nouveau foyer.</p></article></div></section>
+<section class="home-cta" id="contact"><img src="https://chatteriesiberienderussie.fr/assets/bisous.jpg" alt="Chaton Sibérien"><div></div><article class="reveal"><p>Une rencontre peut tout changer.</p><h2>Et si votre histoire<br>commençait ici ?</h2><a class="button cream" href="mailto:chatteriesiberienderussie@gmail.com">Nous contacter <span>↗</span></a></article></section>
 @endsection
